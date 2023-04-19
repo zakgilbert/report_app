@@ -3,7 +3,7 @@ function App() {
   const [data, setData] = useState([{}])
 
   useEffect(() => {
-    fetch("/members").then(
+    fetch("/report").then(
       res => res.json()
     ).then (
       data => {
@@ -15,6 +15,14 @@ function App() {
 
   return(
     <div>
+    <p>
+    </p>
+    </div>
+  )
+}
+export default App
+    /*
+    <div>
 
       {(typeof data.members === 'undefined') ? (
         <p>Loading...</p>
@@ -25,6 +33,4 @@ function App() {
       )}
 
     </div>
-  )
-}
-export default App
+    */

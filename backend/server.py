@@ -1,10 +1,11 @@
 from flask import Flask
+from report import *
 
 app = Flask(__name__)
 
-@app.route("/members")
-def members():
-    return {"members": ["mem1", "mem2", "mem3"]}
+@app.route("/report")
+def report():
+    return getReport()
 
 if __name__ == "__main__":
     app.run(debug=True)
