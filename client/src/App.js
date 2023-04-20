@@ -3,7 +3,7 @@ function App() {
   const [data, setData] = useState([{}])
 
   useEffect(() => {
-    fetch("/report").then(
+    fetch(`/report/${51002}`).then(
       res => res.json()
     ).then (
       data => {

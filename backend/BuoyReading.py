@@ -21,12 +21,6 @@ class BuoyReading:
             print(f(self), end=' ')
         print()
 
-    def checkData(self):
-        if(len(self.data) == len(self.setters)):
-            print("are equal")
-        else:
-            print("not equal")
-
  
     def setYear(self, year): 
         self.year = year

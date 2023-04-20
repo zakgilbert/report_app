@@ -2,9 +2,9 @@ import requests
 import pandas as pd
 from BuoyReading import *
 
-def getReport():
+def getReport(id):
 
-    url = 'https://www.ndbc.noaa.gov/data/realtime2/51101.spec'  # Replace with the URL of the file you want to download
+    url = f'https://www.ndbc.noaa.gov/data/realtime2/{id}.spec'  # Replace with the URL of the file you want to download
 
     response = requests.get(url)
     buoyReadings = []
@@ -13,8 +13,6 @@ def getReport():
         file_object = response.content
         reports = response.text.splitlines()
         cols = reports[0].split()
-        cols[0] = 'YY'
-        print(cols)
         colsData = []
         del reports[:2]
         for report in reports:
@@ -29,5 +27,3 @@ def getReport():
 
     else:
         return [f'Error: {response.status_code}']
-
-getReport()
