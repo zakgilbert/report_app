@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react"
-import { Icon, Label, Menu, Table, TableCell } from 'semantic-ui-react'
+import { Icon, Label, Menu, Popup, Table, TableCell } from 'semantic-ui-react'
 
 const StationInput = ({ id }) => {
     const [data, setData] = useState([{}])
@@ -22,7 +22,13 @@ const StationInput = ({ id }) => {
             <Table.Header>
                 <Table.Row>
                     {
-                        data.cols.map((col) => <Table.HeaderCell key={col}>{col}</Table.HeaderCell>)
+                        data.cols.map((col) =>
+                            <Popup trigger=
+                                {
+                                    <Table.HeaderCell key={col} >{col.value}</Table.HeaderCell>
+                                }>
+                                {col.toolTip}
+                            </Popup>)
                     }
                 </Table.Row>
             </Table.Header>
