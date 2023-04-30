@@ -14,16 +14,15 @@ def getReport(id):
         reports = response.text.splitlines()
         cols = reports[0].split()
         colsData = []
+        rows = []
         del reports[:2]
         for report in reports:
-            report = report.split()
-            buoyReading = BuoyReading(report)
-            buoyReading.setData()
-            buoyReadings.append(buoyReading)
-        for reading in buoyReadings:
-            colsData.append(reading.getData())
-        df = pd.DataFrame(colsData, columns=cols)
-        return df.to_json()
+            rows.append(report.split())
+
+        return {
+            "cols": cols,
+            "rows": rows
+        }
 
     else:
         return [f'Error: {response.status_code}']
