@@ -10,4 +10,4 @@ def getSwellPower(id):
     response = requests.get(url)
     print(response.text)
 
-    return ""
+    return response.text

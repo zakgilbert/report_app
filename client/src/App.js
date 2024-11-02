@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import StationInput from './components/StationInput.js'
+import Power from "./components/Power.js";
+
 function App() {
   const [stationId, setStationId] = useState("");
   const handleChange = e => {
@@ -9,6 +11,12 @@ function App() {
   function renderStation() {
     if(stationId.length === 5) {
       return (<StationInput  id={stationId}/>);
+    }
+    return (<></>);
+  }
+  function renderPower() {
+    if(stationId.length === 5) {
+      return (<Power  id={stationId}/>);
     }
     return (<></>);
   }
@@ -27,7 +35,7 @@ function App() {
           onChange = {handleChange}
         />
       </div>
-      {renderStation()}
+      {renderPower()}
     </section>
     </div>
   )
